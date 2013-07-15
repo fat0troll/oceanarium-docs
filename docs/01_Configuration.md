@@ -24,7 +24,7 @@ Oceanarium::Config.client_id = "your_client_id"
 
 Now you're ready to use Oceanarium in your Rails application.
 
-# Advanced configuration parameters
+## Advanced configuration parameters
 
 There is one advanced parameter — api_url. If you want to use this gem with site, which provides API similar to Digital Ocean, you must override this setting. By default api_url returns *"https://api.digitalocean.com/"*. If you want to use custom URL, just invoke this:
 
