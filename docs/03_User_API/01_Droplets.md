@@ -141,3 +141,37 @@ Returns creation time. Isn't Ruby-friendly yet.
 > s.created_at
 => "2013-07-04T15:39:49Z"
 ~~~
+
+### Creating new droplet
+
+~~~ruby
+Oceanarium::droplet.new(name, size_id, image_id, region_id[, ssh_key_ids])
+~~~
+
+*Digital Ocean equivalent: /droplets/new?client_id=[your_client_id]&api_key=[your_api_key]&name=[droplet_name]&size_id=[size_id]&image_id=[image_id]&region_id=[region_id]&ssh_key_ids=[ssh_key_id1],[ssh_key_id2]*
+
+Creating new Droplet on Digital Ocean with selected parameters. Returns new droplet ID.
+
+~~~ruby
+# valid parameters
+> Oceanarium::droplet.new('example.com', 1, 1, 1)
+=> "100500"
+# invalid parameters, droplet is not created
+> Oceanarium::droplet.new('example.com', 'broken', 1, 1)
+=> nil
+~~~
+
+#### Parameters
+
+* **name** — new droplet's name. String. Must be fully qualified domain name.
+* **size_id** — droplet's size ID. Integer. For getting avaliable sizes, see Sizes article of the documentation
+* **image_id** — droplet's image ID. Integer. For getting avaliable images, see Images article of the documentation.
+* **region_id** — droplet's region ID. Integer. For getting avaliable regions, see Regions article of the documentation.
+
+#### Optional parameters
+
+* **ssh_key_ids** — SSH keys, which will be uploaded to droplet on creation. From Digital Ocean's help:
+
+        You can add SSH keys to DigitalOcean which can then be selected during the droplet create process to add the selected SSH keys under the root user.
+
+This parameter is a comma-separated string with key IDs. For getting avaliable keys, see SSH Keys article of the documentation.
