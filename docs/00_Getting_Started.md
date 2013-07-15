@@ -12,9 +12,7 @@
 
 Add this line to your application's Gemfile:
 
-~~~ruby
-gem 'oceanarium'
-~~~
+    gem 'oceanarium'
 
 And then execute:
 
