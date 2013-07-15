@@ -148,7 +148,7 @@ Returns creation time. Isn't Ruby-friendly yet.
 Oceanarium::droplet.new(name, size_id, image_id, region_id[, ssh_key_ids])
 ~~~
 
-*Digital Ocean equivalent: /droplets/new?client_id=[your_client_id]&api_key=[your_api_key]&name=[droplet_name]&size_id=[size_id]&image_id=[image_id]&region_id=[region_id]&ssh_key_ids=[ssh_key_id1],[ssh_key_id2]*
+*Digital Ocean equivalent: /droplets/new?name=[droplet_name]&size_id=[size_id]&image_id=[image_id]&region_id=[region_id]&ssh_key_ids=[ssh_key_id1],[ssh_key_id2]*
 
 Creating new Droplet on Digital Ocean with selected parameters. Returns new droplet ID.
 
@@ -164,9 +164,9 @@ Creating new Droplet on Digital Ocean with selected parameters. Returns new drop
 #### Parameters
 
 * **name** — new droplet's name. String. Must be fully qualified domain name.
-* **size_id** — droplet's size ID. Integer. For getting avaliable sizes, see Sizes article of the documentation
-* **image_id** — droplet's image ID. Integer. For getting avaliable images, see Images article of the documentation.
-* **region_id** — droplet's region ID. Integer. For getting avaliable regions, see Regions article of the documentation.
+* **size_id** — droplet's size ID. Numeric. For getting avaliable sizes, see Sizes article of the documentation.
+* **image_id** — droplet's image ID. Numeric. For getting avaliable images, see Images article of the documentation.
+* **region_id** — droplet's region ID. Numeric. For getting avaliable regions, see Regions article of the documentation.
 
 #### Optional parameters
 
@@ -242,4 +242,114 @@ Power on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
 => "OK"
 ~~~
 
-Reset root password on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error". Note: password will be sent to Digital Ocean user's e-mail.
+Reset root password on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error". Droplet will be rebooted while resetting. Note: password will be sent to Digital Ocean user's e-mail.
+
+#### Resize
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/resize/?size_id=[size_id]*
+
+~~~ruby
+> Oceanarium::droplets(100500).resize(size_id)
+=> "OK"
+~~~
+
+Doing resize on a selected Droplet. This will also affect the number of processors and memory allocated to the droplet.
+
+Parameters:
+
+* **size_id** — New size ID. Numeric. For getting avaliable sizes, see Sizes article of the documentation.
+
+#### Snapshot
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/snapshot/?name=[snapshot_name]*
+
+~~~ruby
+> Oceanarium::droplet(100500).snapshot(snapshot_name)
+=> "OK"
+~~~
+
+Takes snapshot of current droplet state. May cause droplet reboot.
+
+Parameters:
+
+* **snapshot_name** — Name of the new snapshot. String.
+
+#### Restore
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/restore/?image_id=[image_id]*
+
+~~~ruby
+> Oceanarium::droplet(100500).restore(image_id)
+=> "OK"
+~~~
+
+Restore selected image to droplet. Make sure that you have backups of all important information first.
+
+Parameters:
+
+* **image_id** — selected image ID. For getting avaliable images see Images article of the documentation.
+
+#### Rebuild
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/rebuild/?image_id=[image_id]*
+
+~~~ruby
+> Oceanarium::droplet(100500).restore(image_id)
+=> "OK"
+~~~
+
+Rebuild droplet from scratch with selected image. Useful when you need to start over, but with same IP.
+
+Parameters:
+
+* **image_id** — selected image ID. For getting avaliable images see Images article of the documentation.
+
+#### Backups
+
+##### Enable backups
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/enable_backups/*
+
+~~~ruby
+> Oceanarium::droplet(100500).enable_backups
+=> "OK"
+~~~
+
+Enables automatic backups which run in the background daily to backup your droplet's data. Returns "OK" if success, else — "ERROR" or "Error".
+
+##### Disable backups
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/disable_backups/*
+
+~~~ruby
+> Oceanarium::droplet(100500).disable_backups
+=> "OK"
+~~~
+
+Disables backups on selected droplet.
+
+#### Rename
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/rename/?name=[name]*
+
+~~~ruby
+> Oceanarium::droplet(100500).rename(name)
+=> "OK"
+~~~
+
+Renames droplet to new name. Name must be fully qualified domain name.
+
+Parameters:
+
+* **name** — New droplet's name. String.
+
+#### Destroy
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/destroy/*
+
+~~~ruby
+> Oceanarium::droplet(100500).destroy
+=> "OK"
+~~~
+
+Just kill the cat. Destroying droplet, now it's in archive.
