@@ -23,7 +23,7 @@ All items in this array are valid Droplet objects, which responds to anything, t
 Oceanarium::droplet(droplet_id)
 ~~~
 
-Returns a Droplet object with selected ID.
+Returns a Droplet object with selected ID. Droplet is a Ruby object, which have some useful parameters.
 
 ~~~ruby
 # valid droplet id
@@ -33,3 +33,20 @@ Returns a Droplet object with selected ID.
 > Oceanarium::droplet(201000)
 => #<Oceanarium::Droplet:0x007fb29ea8ecf8 @object=nil, @id=nil>
 ~~~
+
+### Droplet object parameters
+
+* **id** — Returns an droplet ID:
+
+         > s = Oceanarium::droplet(269383)
+         => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
+         > s.id
+         => 269383
+
+* **name** — Returns droplet's name:
+
+
+         > s = Oceanarium::droplet(269383)
+         => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
+         > s.name
+         => "example.com"
