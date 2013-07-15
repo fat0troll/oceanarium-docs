@@ -1,15 +1,13 @@
 {
-	"title": "DAUX.IO",
-	"tagline": "The Easiest Way To Document Your Project",
+	"title": "Oceanarium",
+	"tagline": "Ruby/Rails gem for using Digital Ocean API",
 	"image": "/img/app.png",
 	"theme": "navy",
-	"repo": "justinwalsh/daux.io",
-	"twitter": ["justin_walsh", "todaymade"],
-	"google_analytics": "UA-12653604-10",
+	"repo": "fat0troll/oceanarium",
+	"twitter": ["fat0troll", "ooo_delta_z"],
+	"google_analytics": "",
 	"links": {
-		"Download": "https://github.com/justinwalsh/daux.io/archive/master.zip",
-		"Github Repo": "https://github.com/justinwalsh/daux.io",
-		"Help/Support/Bugs": "https://github.com/justinwalsh/daux.io/issues",
-		"Made by Todaymade": "http://todaymade.com"
+		"Github Repo": "https://github.com/fat0troll/oceanarium",
+		"Made by Delta-Zet LLC": "http://delta-zet.com",
 	}
 }
