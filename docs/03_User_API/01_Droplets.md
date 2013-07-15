@@ -1,10 +1,10 @@
 ## List all droplets
 
+*Digital Ocean API equivalent: /droplets/*
+
 ~~~ruby
 Oceanarium::droplets
 ~~~
-
-*Digital Ocean API equivalent: /droplets/*
 
 Returns an Array with all droplets, registered to user which API key and Client ID is used.
 
@@ -17,11 +17,11 @@ All items in this array are valid Droplet objects, which responds to anything, t
 
 ## Droplet
 
+*Digital Ocean API equivalent: /droplets/[id]/*
+
 ~~~ruby
 Oceanarium::droplet(droplet_id)
 ~~~
-
-*Digital Ocean API equivalent: /droplets/[id]/*
 
 Returns a Droplet object with selected ID.
 
