@@ -5,9 +5,8 @@
 	"theme": "navy",
 	"repo": "fat0troll/oceanarium",
 	"twitter": ["fat0troll", "ooo_delta_z"],
-	"google_analytics": "",
 	"links": {
 		"Github Repo": "https://github.com/fat0troll/oceanarium",
-		"Made by Delta-Zet LLC": "http://delta-zet.com",
+		"Made by Delta-Zet LLC": "http://delta-zet.com"
 	}
 }
