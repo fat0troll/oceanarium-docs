@@ -6,6 +6,7 @@ Oceanarium provides two API levels for application developers.
 Oceanarium::droplets
 Oceanarium::droplet(100500).reboot
 Oceanarium::ssh_key.new('test_key', the_key)
+# and so on
 ~~~
 
 User API — dedicated to gem's end users, follow the structure of current Digital Ocean API.
@@ -21,6 +22,7 @@ Oceanarium::Droplet.all
 Oceanarium::Droplet.find(100500)
 Oceanarium::Image.find_by_name('ololo')
 Oceanarium::SSHKey.new('test', the_key)
+# and so on
 ~~~
 
 Core API — collection of wrappers around Digital Ocean API. It's widely used by this gem (User API is just a shortcuts to Core API), and can be used by application developers too.
