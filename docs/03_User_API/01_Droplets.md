@@ -175,3 +175,71 @@ Creating new Droplet on Digital Ocean with selected parameters. Returns new drop
         You can add SSH keys to DigitalOcean which can then be selected during the droplet create process to add the selected SSH keys under the root user.
 
 This parameter is a comma-separated string with key IDs. For getting avaliable keys, see SSH Keys article of the documentation.
+
+### Actions on droplet
+
+#### Reboot
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/reboot/*
+
+~~~ruby
+> Oceanarium::droplet(100500).reboot
+=> "OK"
+~~~
+
+Reboot selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+
+#### Power cycle
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/power_cycle/*
+
+~~~ruby
+> Oceanarium::droplet(100500).reboot
+=> "OK"
+~~~
+
+Power cycle selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+
+#### Shut down
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/shutdown/*
+
+~~~ruby
+> Oceanarium::droplet(100500).shutdown
+=> "OK"
+~~~
+
+Shut down selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+
+#### Power off
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/power_off/*
+
+~~~ruby
+> Oceanarium::droplet(100500).power_off
+=> "OK"
+~~~
+
+Power off selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+
+#### Power on
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/power_on/*
+
+~~~ruby
+> Oceanarium::droplet(100500).power_on
+=> "OK"
+~~~
+
+Power on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+
+#### Password reset
+
+*Digital Ocean equivalent: /droplets/[droplet_id]/password_reset/*
+
+~~~ruby
+> Oceanarium::droplet(100500).password_reset
+=> "OK"
+~~~
+
+Reset root password on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error". Note: password will be sent to Digital Ocean user's e-mail.
