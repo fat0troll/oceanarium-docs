@@ -41,10 +41,10 @@ Returns a Droplet object with selected ID. Droplet is a Ruby object, which have 
 Returns an droplet ID:
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.id
-=> 269383
+=> 100500
 ~~~
 
 #### name
@@ -52,7 +52,7 @@ Returns an droplet ID:
 Returns droplet's name:
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.name
 => "example.com"
@@ -63,7 +63,7 @@ Returns droplet's name:
 Returns droplet's image ID. Image is an disk snapshot (with system or user data).
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.image_id
 => 1
@@ -74,7 +74,7 @@ Returns droplet's image ID. Image is an disk snapshot (with system or user data)
 Returns droplet's size ID. Size is a droplet's perfomance parameter — droplets RAM and processor in Digital Ocean depends on droplet's size.
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.size_id
 => 1
@@ -85,7 +85,7 @@ Returns droplet's size ID. Size is a droplet's perfomance parameter — droplets
 Returns droplet's region ID. Region is a datacenter, where hosted your Droplet.
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.region_id
 => 1
@@ -96,7 +96,7 @@ Returns droplet's region ID. Region is a datacenter, where hosted your Droplet.
 Indicates if backups are active for this droplet.
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 # backups setup isn't performed yet for this droplet
 > s.backups_active
@@ -107,33 +107,37 @@ Indicates if backups are active for this droplet.
 # backups disabled
 > s.backups_active
 => false
+~~~
 
 #### ip_address
 
 Returns droplet's IP address.
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.ip_address
 => "192.0.2.1"
+~~~
 
 #### status
 
 Returns droplet's status. May be *"new"*, *"active"*, *"off"*, *"archive"*
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.status
 => "active"
+~~~
 
 #### created_at
 
 Returns creation time. Isn't Ruby-friendly yet.
 
 ~~~ruby
-> s = Oceanarium::droplet(269383)
+> s = Oceanarium::droplet(100500)
 => #<Oceanarium::Droplet:0x007fb29eb49760 ...>
 > s.created_at
 => "2013-07-04T15:39:49Z"
+~~~
