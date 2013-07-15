@@ -19,6 +19,8 @@ See the mistype/error in documentation?
 5. Create the Pull Request
 6. Take the beer
 
+Want to fix error in renderer? See http://daux.io for instructions.
+
 Thanks!
 
 ## License
