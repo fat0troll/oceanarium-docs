@@ -2,7 +2,7 @@
 	"title": "Oceanarium",
 	"tagline": "Ruby/Rails gem for using Digital Ocean API",
 	"image": "/img/app.png",
-	"theme": "navy",
+	"theme": "blue",
 	"repo": "fat0troll/oceanarium",
 	"twitter": ["fat0troll", "ooo_delta_z"],
 	"links": {
