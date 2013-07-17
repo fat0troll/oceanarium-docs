@@ -21,7 +21,7 @@ All objects in this array are valid Image objects, responding to anything that l
 
 ### List only user's images
 
-*Digital Ocean equivalent: */images/?filter=my_images*
+*Digital Ocean equivalent: /images/?filter=my_images*
 
 ~~~ruby
 > Oceanarium.images('my_images')
@@ -32,7 +32,7 @@ Returns array with only user's images.
 
 ### List only system images
 
-*Digital Ocean equivalent: */images/?filter=global*
+*Digital Ocean equivalent: /images/?filter=global*
 
 ~~~ruby
 > Oceanarium::images('global')
@@ -43,7 +43,7 @@ Returns array with only system images, avaliable to all users of Digital Ocean.
 
 ## Image
 
-*Digital Ocean equivalent: */images/[image_id]*
+*Digital Ocean equivalent: /images/[image_id]*
 
 ~~~ruby
 Oceanarium::image(image_id)
@@ -97,7 +97,7 @@ Returns a common short name (without versions, codenames, et cetera) for Image d
 
 #### destroy
 
-*Digital Ocean equivalent: */images/[image_id]/destroy/*
+*Digital Ocean equivalent: /images/[image_id]/destroy/*
 
 ~~~ruby
 > Oceanarium::image(100500).destroy
@@ -119,4 +119,4 @@ Transfering image to new region (datacenter: see Regions article for more explan
 
 Parameters:
 
-* **region_id** — ID of Region (datacenter). For getting all avaliable Regions just type <pre>Oceanarium::regions</pre>.
+* **region_id** — ID of Region (datacenter). For getting all avaliable Regions just type *Oceanarium::regions*.
