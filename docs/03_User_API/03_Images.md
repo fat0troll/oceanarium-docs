@@ -26,6 +26,7 @@ All objects in this array are valid Image objects, responding to anything that l
 ~~~ruby
 > Oceanarium.images('my_images')
 => [#<Oceanarium::Image:0x007f1257dfcbe8 @object={"id"=>100500, "name"=>"test_user_image", "slug"=>nil, "distribution"=>"Debian"}, @id=100500, @name="test_user_image", @slug=nil, @distribution="Debian">, #<Oceanarium::Image:0x007f1257dfcb20 @object={"id"=>100501, "name"=>"another_test_user_image", "slug"=>nil, "distribution"=>"Ubuntu"}, @id=100500, @name="another_test_user_image", @slug=nil, @distribution="Ubuntu">]
+~~~
 
 Returns array with only user's images.
 
