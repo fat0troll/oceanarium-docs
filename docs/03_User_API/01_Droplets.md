@@ -150,12 +150,12 @@ Oceanarium::droplet.new(name, size_id, image_id, region_id[, ssh_key_ids])
 
 *Digital Ocean equivalent: /droplets/new?name=[droplet_name]&size_id=[size_id]&image_id=[image_id]&region_id=[region_id]&ssh_key_ids=[ssh_key_id1],[ssh_key_id2]*
 
-Creating new Droplet on Digital Ocean with selected parameters. Returns new droplet ID.
+Creating new Droplet on Digital Ocean with selected parameters. Returns new droplet ID and event ID (for more informations see Events article).
 
 ~~~ruby
 # valid parameters
 > Oceanarium::droplet.new('example.com', 1, 1, 1)
-=> "100500"
+=> ["100500", 201000]
 # invalid parameters, droplet is not created
 > Oceanarium::droplet.new('example.com', 'broken', 1, 1)
 => nil
@@ -184,10 +184,10 @@ This parameter is a comma-separated string with key IDs. For getting avaliable k
 
 ~~~ruby
 > Oceanarium::droplet(100500).reboot
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
-Reboot selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+Reboot selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 #### Power cycle
 
@@ -195,10 +195,10 @@ Reboot selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
 
 ~~~ruby
 > Oceanarium::droplet(100500).reboot
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
-Power cycle selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+Power cycle selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 #### Shut down
 
@@ -206,10 +206,10 @@ Power cycle selected Droplet. Returns "OK" if success, else — "ERROR" or "Erro
 
 ~~~ruby
 > Oceanarium::droplet(100500).shutdown
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
-Shut down selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+Shut down selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 #### Power off
 
@@ -217,10 +217,10 @@ Shut down selected Droplet. Returns "OK" if success, else — "ERROR" or "Error"
 
 ~~~ruby
 > Oceanarium::droplet(100500).power_off
-=> "OK"
+=> ["OK", 200100]
 ~~~
 
-Power off selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+Power off selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 #### Power on
 
@@ -228,10 +228,10 @@ Power off selected Droplet. Returns "OK" if success, else — "ERROR" or "Error"
 
 ~~~ruby
 > Oceanarium::droplet(100500).power_on
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
-Power on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
+Power on selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 #### Password reset
 
@@ -239,10 +239,10 @@ Power on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error".
 
 ~~~ruby
 > Oceanarium::droplet(100500).password_reset
-=> "OK"
+=> ["OK", 200100]
 ~~~
 
-Reset root password on selected Droplet. Returns "OK" if success, else — "ERROR" or "Error". Droplet will be rebooted while resetting. Note: password will be sent to Digital Ocean user's e-mail.
+Reset root password on selected Droplet. Returns "OK" and event ID if success, else — "ERROR" or "Error". Droplet will be rebooted while resetting. Note: password will be sent to Digital Ocean user's e-mail.
 
 #### Resize
 
@@ -250,7 +250,7 @@ Reset root password on selected Droplet. Returns "OK" if success, else — "ERRO
 
 ~~~ruby
 > Oceanarium::droplets(100500).resize(size_id)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Doing resize on a selected Droplet. This will also affect the number of processors and memory allocated to the droplet.
@@ -265,7 +265,7 @@ Parameters:
 
 ~~~ruby
 > Oceanarium::droplet(100500).snapshot(snapshot_name)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Takes snapshot of current droplet state. May cause droplet reboot.
@@ -280,7 +280,7 @@ Parameters:
 
 ~~~ruby
 > Oceanarium::droplet(100500).restore(image_id)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Restore selected image to droplet. Make sure that you have backups of all important information first.
@@ -295,7 +295,7 @@ Parameters:
 
 ~~~ruby
 > Oceanarium::droplet(100500).restore(image_id)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Rebuild droplet from scratch with selected image. Useful when you need to start over, but with same IP.
@@ -312,10 +312,10 @@ Parameters:
 
 ~~~ruby
 > Oceanarium::droplet(100500).enable_backups
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
-Enables automatic backups which run in the background daily to backup your droplet's data. Returns "OK" if success, else — "ERROR" or "Error".
+Enables automatic backups which run in the background daily to backup your droplet's data. Returns "OK" and event ID if success, else — "ERROR" or "Error".
 
 ##### Disable backups
 
@@ -323,7 +323,7 @@ Enables automatic backups which run in the background daily to backup your dropl
 
 ~~~ruby
 > Oceanarium::droplet(100500).disable_backups
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Disables backups on selected droplet.
@@ -334,7 +334,7 @@ Disables backups on selected droplet.
 
 ~~~ruby
 > Oceanarium::droplet(100500).rename(name)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Renames droplet to new name. Name must be fully qualified domain name.
@@ -349,7 +349,7 @@ Parameters:
 
 ~~~ruby
 > Oceanarium::droplet(100500).destroy
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Just kill the cat. Destroying droplet, now it's in archive.

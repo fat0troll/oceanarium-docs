@@ -112,7 +112,7 @@ Destroying an image. Note: you can't destroy system images, unless you're a Digi
 
 ~~~ruby
 > Oceanarium::image(100500).transfer(region_id)
-=> "OK"
+=> ["OK", 201000]
 ~~~
 
 Transfering image to new region (datacenter: see Regions article for more explanation).
